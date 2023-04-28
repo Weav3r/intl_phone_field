@@ -85,8 +85,10 @@ class _CountryPickerDialogState extends State<CountryPickerDialog> {
               : defaultHorizontalPadding),
       backgroundColor: widget.style?.backgroundColor,
       child: Container(
+        height: MediaQuery.of(context).size.height * 0.4,
         padding: widget.style?.padding ?? EdgeInsets.all(10),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Padding(
               padding: widget.style?.searchFieldPadding ?? EdgeInsets.all(0),
@@ -119,6 +121,8 @@ class _CountryPickerDialogState extends State<CountryPickerDialog> {
                 itemBuilder: (ctx, index) => Column(
                   children: <Widget>[
                     ListTile(
+                      dense: true,
+                      visualDensity: VisualDensity.compact,
                       leading: Image.asset(
                         'assets/flags/${_filteredCountries[index].code.toLowerCase()}.png',
                         package: 'intl_phone_field',
